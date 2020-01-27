@@ -1,0 +1,43 @@
+{% extends "_layouts/cp" %}
+
+{% block content %}
+	<p>{{ "Below showing all of forms from Form Builder 2 plugin. You can click 'download icon' for downloading your  submissions if it has any submission" | t }}</p>
+	{% if formItems is defined and formItems | length %}
+		<div class="tableview">
+	  		<table class="data fullwidth">
+	    		<thead>
+	      			<tr>
+				        <th>{{ "ID" | t }}</th>
+				        <th>{{ "Title" | t }}</th>
+				        <th>{{ "Entries" | t }}</th>
+				        <th></th>
+	      			</tr>
+	    		</thead>
+	    		<tbody>
+				{% for form in formItems %}
+					{% set submissions = craft.formBuilder2.getAllEntriesFromFormID(form.id) %}
+		    		<tr data-id="3" tabindex="0">
+		        		<td class="thin checkbox-cell">
+		        			{{ form.id }}
+		        		</td>
+		        		<td data-title="Başlık" data-titlecell="">
+		            		<div class="label">
+		              			<span class="title">{{ form }}</span>
+		            		</div>
+		        		</td>
+		        		<td> {{ submissions|length }}</td>
+		        		<td data-title="Bağlantı" data-attr="link">
+		        			{% if submissions|length %}
+		          				<a href="{{ actionUrl('exportFormBuilderSubmissions/entry/getSubmissions', {'formId': form.id}) }}" data-icon="download" title="{{ 'Download' | t }}"></a>
+		        			{% else %}
+		        				-
+		        			{% endif %}
+		        		</td>
+		      		</tr>  
+				{% endfor %}
+		  		</tbody>
+			</table>
+		</div>
+	{% endif %}
+{% endblock %}
+
