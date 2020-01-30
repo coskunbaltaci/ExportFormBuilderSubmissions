@@ -8,11 +8,9 @@ You can not download your form submissions If you build a form using "Form Build
 
 ## Installation
 
-Clone this repository into the `craft/plugins`
-
-Or
-
-`git clone https://github.com/hparra/craft-databaseimportexport.git databaseimportexport`
+- Clone this repository into the `craft / plugins`
+- Login to your control panel
+- Go to "Settings / plugins" and click the "install" link for the Export Form Builder Submissions plugin.
 
 ## Usage
 
