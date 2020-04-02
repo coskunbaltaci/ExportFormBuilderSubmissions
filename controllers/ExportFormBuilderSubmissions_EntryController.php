@@ -21,7 +21,12 @@ class ExportFormBuilderSubmissions_EntryController extends BaseController
 	    	$fileName = $formName . '-' . date('ymdhsi') . '.csv';
 	    	$formSubmisions = array();
 	    	foreach ($entries as $entry) {
-	    		$formSubmisions[] = json_decode($entry['submission'], true);
+	    		$entryMeta = array(
+	    			'id' => $entry['id'],
+	    			'dateCreated' => $entry['dateCreated']
+	    		); 
+	    		$entryData = json_decode($entry['submission'], true);
+	    		$formSubmisions[] = array_merge($entryMeta, $entryData);
 	    	}
 	    	$this->createCsv($formSubmisions, $fileName);
 	    	return true;

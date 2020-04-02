@@ -10,12 +10,12 @@ class ExportFormBuilderSubmissionsPlugin extends BasePlugin
 
 	function getVersion()
 	{
-		return '0.1.0';
+		return '0.1.1';
 	}
 
 	function getDeveloper()
 	{
-		return 'Coskun Baltacı';
+		return 'Coskun Baltaci';
 	}
 
 	function getDeveloperUrl()
@@ -23,6 +23,15 @@ class ExportFormBuilderSubmissionsPlugin extends BasePlugin
 		return 'https://github.com/coskunbaltaci';
 	}
 
+	function getDocumentationUrl()
+  	{
+    	return 'https://github.com/coskunbaltaci/ExportFormBuilderSubmissions';
+  	}
+  	
+  	function getDescription()
+	{
+	    return Craft::t('Export Form Builder Submissions');
+	}
 	function hasCpSection()
 	{
 		return true;
